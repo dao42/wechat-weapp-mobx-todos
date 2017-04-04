@@ -14,7 +14,7 @@
     <view wx:for="{{props.todoStore.filterTodos}}" wx:key="{{item.id}}">
 
       <view bindtap="handleCheck" class="todo-item {{item.completed ? 'completed' : ''}}" data-id="{{item.id}}">
-        <icon type="{{item.completed ? 'success_circle' : 'circle'}}" size="18"/> {{item.title}}
+        <icon catchtap="handleCheck" data-id="{{item.id}}" type="{{item.completed ? 'success_circle' : 'circle'}}" size="18"/> {{item.title}}
       </view>
     </view>
     <view class='count'>
