@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="filters">
+    <text
+      wx:for="{{props.todoStore.filters}}"
+      wx:key="{{item.key}}"
+      bindtap="applyFilter"
+      data-key="{{item.key}}"
+      class="{{props.todoStore.filter == item.key ? 'active' : ''}}"
+    >{{item.text}}</text>
+  </view>
+
+  <view class="todos">
+    <view wx:for="{{props.todoStore.filterTodos}}" wx:key="{{item.id}}">
+
+      <view bindtap="handleCheck" class="todo-item {{item.completed ? 'completed' : ''}}" data-id="{{item.id}}">
+        <icon type="{{item.completed ? 'success_circle' : 'circle'}}" size="18"/> {{item.title}}
+      </view>
+    </view>
+    <view class='count'>
+      <text> 总共: {{props.todoStore.totalCount}} </text>
+      <text> , 当前: {{props.todoStore.currentCount}} </text>
+    </view>
+  </view>
+
+  <form class="add-todo" bindsubmit="addTodo">
+    <input name="todo" class="todo-input" placeholder="输入新项"/>
+    <button formType="submit">提交</button>
+  </form>
+</view>
