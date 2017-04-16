@@ -9,6 +9,9 @@ var TodoItemStore = function(title) {
     title: title,
     id: nextTodoId,
     completed: false,
+    get ids() {
+      return this.id + ": " + this.title;
+    }
   });
 }
 
