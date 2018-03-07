@@ -3,6 +3,7 @@ var extendObservable = require('../libs/mobx').extendObservable;
 var computed = require('../libs/mobx').computed;
 var toJS = require('../libs/mobx').toJS;
 var TodoItem = require('./todoItemStore').default;
+var action = mobx.action;
 
 var TodoStore = function() {
   extendObservable(this, {
@@ -36,16 +37,16 @@ var TodoStore = function() {
   });
 
 
-  this.addTodo = function(title) {
+  this.addTodo = action(function(title) {
     this.todos.push( new TodoItem(title) );
-  }
+  })
 
-  this.findByTodoId = function(id) {
+  this.findByTodoId = action(function(id) {
     var item = this.todos.find( function(element) {
       return element.id === id;
     })
     return item;
-  }
+  })
 }
 
 module.exports = {
