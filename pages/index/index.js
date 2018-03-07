@@ -1,4 +1,5 @@
 var observer = require('../../libs/observer').observer;
+var action = require('../../libs/mobx').action;
 Page(observer({
   props: {
     todoStore: require('../../stores/todoStore').default
@@ -10,9 +11,9 @@ Page(observer({
     this.props.todoStore.findByTodoId(todoId).completed = !status;
   },
 
-  applyFilter: function(e) {
+  applyFilter: action(function(e) {
     this.props.todoStore.filter = e.target.dataset.key;
-  },
+  }),
 
   todosFiltered: function(){
     return this.props.todoStore.filterBy();
