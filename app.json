@@ -7,5 +7,6 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "wechat-weapp-mobx-todos",
     "navigationBarTextStyle": "black"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

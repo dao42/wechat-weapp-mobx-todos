@@ -11,6 +11,8 @@
 	"libVersion": "1.9.94",
 	"appid": "touristappid",
 	"projectname": "wechat-weapp-mobx-todos",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
